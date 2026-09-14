@@ -10,6 +10,8 @@ import { useMatchPreferences } from "@/components/match/MatchContext";
 import { calculateMatchScore } from "@/lib/matchEngine";
 import { generateLocalSummary } from "@/lib/propertySummary";
 import { properties, rentalProperties } from "@/lib/data";
+import { mockListings } from "@/lib/mockListings";
+import { formatPriceFull } from "@/lib/mapUtils";
 import type { PropertySummary } from "@/lib/types";
 
 function SectionBlock({ title, children }: { title: string; children: React.ReactNode }) {
@@ -61,6 +63,53 @@ export default function ListingDetailPage() {
   }, [property]);
 
   if (!property) {
+    // Not one of the site's main listings — check the map's mock dataset
+    // (see lib/mockListings.ts) before giving up. These are demo listings
+    // for the Property Map Search feature, kept in their own simpler shape,
+    // so they get a lighter info view rather than the full AI summary below.
+    const mockListing = mockListings.find((l) => l.id === params.id);
+    if (mockListing) {
+      return (
+        <>
+          <Header />
+          <main className="pt-20 md:pt-24">
+            <section className="bg-ivory py-12 md:py-16">
+              <div className="container-x grid gap-10 lg:grid-cols-[1.2fr_1fr]">
+                <img src={mockListing.image} alt={mockListing.address} className="aspect-[4/3] w-full rounded-lg object-cover" />
+                <div>
+                  <span className="plaque">{mockListing.status}</span>
+                  <h1 className="mt-3 font-display text-[26px] font-medium text-ink md:text-[32px]">{mockListing.address}</h1>
+                  <p className="mt-1 text-[14px] text-ink/55">
+                    {mockListing.neighborhood}, {mockListing.city}
+                  </p>
+                  <div className="mt-4 flex items-center gap-5 font-mono text-[13px] uppercase tracking-widest2 text-ink/60">
+                    <span>{mockListing.bedrooms} Bed</span>
+                    <span>&middot;</span>
+                    <span>{mockListing.bathrooms} Bath</span>
+                    <span>&middot;</span>
+                    <span>{mockListing.sqft.toLocaleString()} Sqft</span>
+                    <span>&middot;</span>
+                    <span>{mockListing.propertyType}</span>
+                  </div>
+                  <p className="mt-4 font-display text-[28px] font-medium text-ink">
+                    {formatPriceFull(mockListing.price, mockListing.isRental)}
+                  </p>
+                  <p className="mt-6 text-[13px] leading-relaxed text-ink/50">
+                    This is placeholder demo data from the Property Map Search feature — not one of West
+                    Properties&rsquo; full listings, so it doesn&rsquo;t yet have an AI summary or match score.
+                  </p>
+                  <Link href="/contact" className="btn-primary mt-6 inline-flex">
+                    Book a Consultation
+                  </Link>
+                </div>
+              </div>
+            </section>
+          </main>
+          <Footer />
+        </>
+      );
+    }
+
     return (
       <>
         <Header />

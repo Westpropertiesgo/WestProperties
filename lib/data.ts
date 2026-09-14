@@ -63,6 +63,8 @@ export const properties: Property[] = [
     listingType: "sale",
     image:
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.5556,
+    lng: -79.5943,
   },
   {
     id: "wp-1002",
@@ -77,6 +79,8 @@ export const properties: Property[] = [
     listingType: "sale",
     image:
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.401,
+    lng: -79.7135,
   },
   {
     id: "wp-1003",
@@ -91,6 +95,8 @@ export const properties: Property[] = [
     listingType: "sale",
     image:
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.4525,
+    lng: -79.6885,
   },
   {
     id: "wp-1004",
@@ -105,6 +111,8 @@ export const properties: Property[] = [
     listingType: "sale",
     image:
       "https://images.unsplash.com/photo-1598228723793-52759bba239c?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.5295,
+    lng: -79.8605,
   },
   {
     id: "wp-1005",
@@ -119,6 +127,8 @@ export const properties: Property[] = [
     listingType: "sale",
     image:
       "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.5561,
+    lng: -79.7251,
   },
   {
     id: "wp-1006",
@@ -133,6 +143,8 @@ export const properties: Property[] = [
     listingType: "sale",
     image:
       "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.5185,
+    lng: -79.8781,
   },
   {
     id: "wp-1007",
@@ -147,6 +159,8 @@ export const properties: Property[] = [
     listingType: "sale",
     image:
       "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.5934,
+    lng: -79.6421,
   },
   {
     id: "wp-1008",
@@ -161,6 +175,8 @@ export const properties: Property[] = [
     listingType: "sale",
     image:
       "https://images.unsplash.com/photo-1600210492493-0946911123ea?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.4283,
+    lng: -79.7227,
   },
   {
     id: "wp-1009",
@@ -175,6 +191,8 @@ export const properties: Property[] = [
     listingType: "sale",
     image:
       "https://images.unsplash.com/photo-1600573472591-ee6981cf35b6?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.5218,
+    lng: -79.8395,
   },
 ];
 
@@ -192,6 +210,8 @@ export const rentalProperties: Property[] = [
     listingType: "rent",
     image:
       "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.5928,
+    lng: -79.6435,
   },
   {
     id: "wp-r-2002",
@@ -206,6 +226,8 @@ export const rentalProperties: Property[] = [
     listingType: "rent",
     image:
       "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.4004,
+    lng: -79.7128,
   },
   {
     id: "wp-r-2003",
@@ -220,6 +242,8 @@ export const rentalProperties: Property[] = [
     listingType: "rent",
     image:
       "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.5147,
+    lng: -79.8825,
   },
   {
     id: "wp-r-2004",
@@ -234,6 +258,8 @@ export const rentalProperties: Property[] = [
     listingType: "rent",
     image:
       "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.5567,
+    lng: -79.7244,
   },
   {
     id: "wp-r-2005",
@@ -248,6 +274,8 @@ export const rentalProperties: Property[] = [
     listingType: "rent",
     image:
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.4517,
+    lng: -79.6893,
   },
   {
     id: "wp-r-2006",
@@ -262,6 +290,8 @@ export const rentalProperties: Property[] = [
     listingType: "rent",
     image:
       "https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1400&auto=format&fit=crop",
+    lat: 43.5189,
+    lng: -79.8768,
   },
 ];
 
@@ -496,6 +526,7 @@ export const navLinks = [
  * icon-triggered menu instead of a crowded top-level nav row.
  */
 export const toolMenuLinks = [
+  { label: "Property Map Search", href: "/map-search", description: "Browse listings on an interactive price map" },
   { label: "AI Property Match", href: "/match", description: "Get a Match Score 1-100 on every listing" },
   { label: "Mortgage & Affordability Calculators", href: "/tools", description: "Payment, affordability, and land transfer tax" },
   { label: "Home Value Estimate", href: "/home-value", description: "See what your property could sell for" },
@@ -540,6 +571,7 @@ export const drawerAccordions: { title: string; items: DrawerLink[] }[] = [
     title: "Buying & Selling",
     items: [
       { label: "Buy a Home", href: "/buy" },
+      { label: "Property Map Search", href: "/map-search" },
       { label: "Sell a Home", href: "/sell" },
       { label: "First-Time Home Buyer Guide", href: "/buying-strategy" },
       { label: "Investment Properties", href: "/buy" },

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navLinks, primaryServiceAreas, expansionServiceAreas } from "@/lib/data";
+import { navLinks } from "@/lib/data";
 
 const socials = [
   { label: "Instagram", href: "https://instagram.com" },
@@ -10,15 +10,17 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="bg-ink text-ivory">
-      <div className="container-x grid gap-14 py-20 md:grid-cols-4">
+      <div className="container-x grid gap-14 py-20 md:grid-cols-3">
         <div className="md:col-span-1">
-          <p className="font-display text-2xl font-light">West Properties</p>
-          <p className="mt-1 font-mono text-[10px] uppercase tracking-widest2 text-brass-light">
+          <p className="flex items-baseline gap-2">
+            <span className="font-logo text-2xl text-ivory tracking-tight">West</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest2 text-brass">Properties</span>
+          </p>
+          <p className="mt-3 font-mono text-[10px] uppercase tracking-widest2 text-brass-light">
             Find Your Next Home With West Properties.
           </p>
           <p className="mt-4 max-w-[240px] text-[13px] leading-relaxed text-ivory/55">
-            Luxury real estate guidance across {primaryServiceAreas.join(", ")}
-            . Expanding soon to {expansionServiceAreas.join(" and ")}.
+            Your trusted guide to Milton, Oakville, and Mississauga real estate.
           </p>
           <div className="mt-6 flex gap-4">
             {socials.map((s) => (
@@ -59,31 +61,16 @@ export default function Footer() {
             Contact
           </p>
           <ul className="mt-5 flex flex-col gap-3 text-[14px] text-ivory/70">
-            <li>100 City Centre Dr, Mississauga, ON</li>
+            <li>30 Eglinton Ave W, Mississauga, ON #201</li>
             <li>
-              <a href="tel:+19055550142" className="hover:text-brass-light">
-                (905) 555-0142
-              </a>
-            </li>
-            <li>
-              <a href="mailto:hello@westproperties.ca" className="hover:text-brass-light">
-                hello@westproperties.ca
+              <a href="mailto:info@westproperties.ca" className="hover:text-brass-light">
+                info@westproperties.ca
               </a>
             </li>
             <li>Mon &ndash; Sat, 9am &ndash; 7pm ET</li>
           </ul>
         </div>
 
-        <div>
-          <p className="font-mono text-[11px] uppercase tracking-widest2 text-ivory/40">
-            Brokerage
-          </p>
-          <ul className="mt-5 flex flex-col gap-3 text-[13px] leading-relaxed text-ivory/55">
-            <li>West Properties Realty Brokerage Inc.</li>
-            <li>Brokerage licence no. [placeholder]</li>
-            <li>Independently owned and operated.</li>
-          </ul>
-        </div>
       </div>
 
       <div className="hairline border-ivory/10">

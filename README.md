@@ -144,6 +144,78 @@ datasets in `lib/data.ts`) are wired into matching and detail pages —
 formatting for price/beds and isn't included, to avoid feeding malformed
 data into the scoring math.
 
+## Interactive Property Map
+
+`/map-search` (`app/map-search/page.tsx`) is a full split-screen map search
+experience: listings on the left, an interactive dark-styled Mapbox map on
+the right, fully synced (hover a listing → its marker highlights; click a
+marker → the listing scrolls into view and a preview card appears). Below
+the `lg` breakpoint it switches to a dedicated Map/List toggle rather than
+just shrinking the split view.
+
+**Setup required:** get a free token from https://account.mapbox.com/access-tokens
+and add it to `.env.local` as `NEXT_PUBLIC_MAPBOX_TOKEN` (see `.env.example`).
+Mapbox tokens are meant to be public/client-side by design — restrict it to
+your domain in the Mapbox dashboard for production rather than treating it
+as a secret. Without a token, the map area shows a clear "not configured"
+state instead of failing silently.
+
+**Mock data, kept deliberately separate:** `lib/mockListings.ts` is the
+map's entire data source — 23 placeholder listings across Oakville,
+Mississauga, Milton, and Brampton, in a `MapListing` shape (`latitude`,
+`longitude`, `bedrooms`, `propertyType`, `listingUrl`, etc.). It's kept
+separate from `lib/data.ts` (the real listings used elsewhere on the site —
+cards, the AI match engine) specifically so the map's data source can be
+swapped for a real MLS/API feed later by replacing the `mockListings` export
+with a `realListings` export of the same shape — no component in
+`components/map/` needs to change. The file's header comment makes this
+explicit. "View Property" on a mock listing links to `/listings/{id}`,
+which falls back to a simpler info-only view (see `app/listings/[id]/page.tsx`)
+since these demo listings aren't wired into the AI summary/match-score
+system built for the site's real listings.
+
+**Markers are a single consistent style** — dark background, thin gold
+border, price as the only per-marker signal (no color-coding by price
+tier) — selected state fills solid gold. Area-level price variation is
+instead communicated through an optional **price heatmap layer** (toggle
+button, top-right of the map, off by default so individual pins stay
+primary): a real Mapbox `heatmap` layer weighted by listing price, not a
+static image, so it already reads live data and is the extension point for
+a future real market-heatmap layer.
+
+**Price filtering** offers quick preset bands (Any / $500K–750K / … / $2M+)
+plus custom min/max inputs below them, alongside city, property type, and
+min beds/baths — all combined in `lib/mapUtils.ts`'s `applyListingFilters()`.
+
+**How it works:**
+- `lib/mockListings.ts` — the mock dataset and its `MapListing` type contract.
+- `lib/mapUtils.ts` — price range presets, price formatting, filter logic,
+  and `fetchListingsInBounds()` — written as an async function that
+  currently just filters whichever array is passed in; swap its body for a
+  real API call once a live feed is connected, no caller needs to change.
+- `components/map/PropertyMap.tsx` — the actual Mapbox GL map. Clustering
+  is real, native Mapbox clustering (a GeoJSON source with `cluster: true`,
+  not a fake visual) — cluster circles are Mapbox layers for performance,
+  and only *unclustered* points get custom HTML price-pill markers, following
+  Mapbox's own recommended pattern for mixing native clustering with custom
+  DOM markers. The base style is Mapbox's `dark-v11`, with several default
+  label layers (POI, transit, minor settlements) switched off on load.
+- `components/map/PropertyMapExplorer.tsx` — the split-screen/mobile
+  container: filters, listing list, heatmap toggle, "Search this area"
+  flow, loading/empty states.
+
+**Scoped out for now, flagged rather than silently skipped:** true viewport-
+bounds geocoding against a live listings API (currently "Search this area"
+filters the already-loaded dataset by bounds — architecturally ready to
+swap in a real endpoint, not actually calling one yet), and a fully custom
+Mapbox Studio style (this uses Mapbox's stock `dark-v11` with noisy layers
+switched off, not a bespoke style built in Mapbox Studio).
+
+This feature is also fully ported into `west-properties-preview.html` as a
+real, working feature (not a mockup) — Mapbox GL loads there via a plain
+CDN `<script>` tag, which needs no bundler, so the static file gets the
+same live clustering map. See that file's own `MAPBOX_TOKEN` constant.
+
 ## Extending the site
 
 The homepage is intentionally split into one component per section so new

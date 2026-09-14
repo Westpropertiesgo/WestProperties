@@ -21,6 +21,9 @@ export interface Property {
   status: "For Sale" | "New Listing" | "Sold" | "For Rent";
   listingType: "sale" | "rent";
   image: string;
+  /** Real-world coordinates for the map — every listing must have these. */
+  lat: number;
+  lng: number;
 }
 
 export interface Testimonial {

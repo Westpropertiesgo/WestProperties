@@ -34,7 +34,7 @@ const config: Config = {
           line: "#D2D7DD",
           deep: "#B8BFC8",
         },
-        // "brass" — vivid warm gold accent (kept the name for compatibility)
+        // "brass" — vivid warm orange-gold accent, matched by the recolored logo
         brass: {
           DEFAULT: "#E0A83E",
           light: "#EDC27A",
