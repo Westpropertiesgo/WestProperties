@@ -82,7 +82,7 @@ export default function ListingDetailPage() {
                   <p className="mt-1 text-[14px] text-ink/55">
                     {mockListing.neighborhood}, {mockListing.city}
                   </p>
-                  <div className="mt-4 flex items-center gap-5 font-mono text-[13px] uppercase tracking-widest2 text-ink/60">
+                  <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[13px] uppercase tracking-widest2 text-ink/60">
                     <span>{mockListing.bedrooms} Bed</span>
                     <span>&middot;</span>
                     <span>{mockListing.bathrooms} Bath</span>
@@ -138,7 +138,7 @@ export default function ListingDetailPage() {
                 <span className="plaque">{property.status}</span>
                 <h1 className="mt-3 font-display text-[26px] font-medium text-ink md:text-[32px]">{property.address}</h1>
                 <p className="mt-1 text-[14px] text-ink/55">{property.city}</p>
-                <div className="mt-4 flex items-center gap-5 font-mono text-[13px] uppercase tracking-widest2 text-ink/60">
+                <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[13px] uppercase tracking-widest2 text-ink/60">
                   <span>{property.beds} Bed</span>
                   <span>&middot;</span>
                   <span>{property.baths} Bath</span>

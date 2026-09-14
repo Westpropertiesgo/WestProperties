@@ -39,7 +39,7 @@ export default function HomeValueSection() {
                 <input type="text" placeholder="Bathrooms" className="field-light" />
               </div>
               <input type="email" placeholder="Email address" className="field-light" required />
-              <button type="submit" className="btn-brass mt-8 w-full">
+              <button type="submit" className="btn-brass mt-8 w-full whitespace-normal">
                 Get My Home Value
               </button>
             </form>
