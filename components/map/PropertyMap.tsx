@@ -289,7 +289,7 @@ export default function PropertyMap({
         <p className="font-mono text-[11px] uppercase tracking-widest2 text-ivory/50">Map not configured</p>
         <p className="max-w-sm text-[13px] leading-relaxed text-ivory/70">
           Add a free Mapbox token to <code className="text-brass-light">NEXT_PUBLIC_MAPBOX_TOKEN</code> in{" "}
-          <code className="text-brass-light">.env.local</code> to activate the interactive map — see{" "}
+          <code className="text-brass-light">.env.local</code> to activate the interactive map, see{" "}
           <code className="text-brass-light">.env.example</code>.
         </p>
       </div>

@@ -31,7 +31,7 @@ export default function WestInsiderSection() {
           </h2>
           <p className="mt-6 max-w-md text-[15px] leading-relaxed text-ivory/65">
             A private list for buyers and sellers who want to see homes
-            before the rest of the market does. No spam, no daily emails —
+            before the rest of the market does. No spam, no daily emails,
             only what's relevant to Mississauga, Oakville, and Milton.
           </p>
 

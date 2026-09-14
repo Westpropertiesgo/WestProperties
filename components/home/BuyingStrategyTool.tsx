@@ -9,7 +9,7 @@ const stages = [
     key: "budget",
     label: "Budget Planning",
     headline: "Know your real number before you shop",
-    copy: "Your comfortable budget usually isn't your maximum approval — it's shaped by down payment source, closing costs, and how much cash flow flexibility you want to keep.",
+    copy: "Your comfortable budget usually isn't your maximum approval. It's shaped by down payment source, closing costs, and how much cash flow flexibility you want to keep.",
     checklist: [
       "Confirm your down payment amount and source",
       "Estimate closing costs at 1.5–4% of price",
@@ -20,7 +20,7 @@ const stages = [
     key: "mortgage",
     label: "Mortgage Readiness",
     headline: "Get your financing lined up early",
-    copy: "A pre-approval tells sellers you're a serious buyer and tells you what price range to actually search within — before you fall for a home outside your range.",
+    copy: "A pre-approval tells sellers you're a serious buyer and tells you what price range to actually search within, before you fall for a home outside your range.",
     checklist: [
       "Get pre-approved with a lender or broker",
       "Gather income, employment, and asset documentation",
@@ -66,7 +66,7 @@ export default function BuyingStrategyTool() {
           </h2>
           <p className="mt-6 text-[15px] leading-relaxed text-ink/60">
             A guided walkthrough of the four decisions that shape a
-            confident purchase — not a mortgage calculator, but a framework
+            confident purchase. Not a mortgage calculator, but a framework
             our agents use with every buyer.
           </p>
         </div>

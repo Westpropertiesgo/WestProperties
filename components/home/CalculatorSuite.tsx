@@ -211,7 +211,7 @@ function MortgageTab() {
             />
             {price >= 1_000_000 && downPct < 20 && (
               <p className="mt-2 text-[11px] leading-relaxed text-brass-dark">
-                Homes $1M and over require at least 20% down in Canada — adjusted automatically.
+                Homes $1M and over require at least 20% down in Canada, adjusted automatically.
               </p>
             )}
             {result.cmhcPremium > 0 && (
@@ -355,7 +355,7 @@ function AffordabilityTab() {
           <div className="flex items-center justify-between"><span>Max monthly housing cost</span><span className="font-mono text-ink">{fmt(maxMonthlyHousing)}</span></div>
           <div className="flex items-center justify-between"><span>Qualifying (stress test) rate</span><span className="font-mono text-ink">{stressTestRate.toFixed(2)}%</span></div>
         </div>
-        <p className="mt-6 text-[11px] leading-relaxed text-ink/40">Simplified estimate — a lender's underwriting will use your full financial picture.</p>
+        <p className="mt-6 text-[11px] leading-relaxed text-ink/40">Simplified estimate. A lender's underwriting will use your full financial picture.</p>
       </div>
     </div>
   );
@@ -395,7 +395,7 @@ function LandTransferTaxTab() {
           <div className="flex items-center justify-between"><span>Tax before rebate</span><span className="font-mono text-ink">{fmt(tax)}</span></div>
           <div className="flex items-center justify-between"><span>First-time buyer rebate</span><span className="font-mono text-ink">-{fmt(rebate)}</span></div>
         </div>
-        <p className="mt-6 text-[11px] leading-relaxed text-ink/40">Ontario provincial tax only — Toronto properties carry an additional municipal land transfer tax.</p>
+        <p className="mt-6 text-[11px] leading-relaxed text-ink/40">Ontario provincial tax only. Toronto properties carry an additional municipal land transfer tax.</p>
       </div>
     </div>
   );

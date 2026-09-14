@@ -67,7 +67,7 @@ function ListingCard({ listing }: { listing: MatchableProperty }) {
 function localFallbackReply(userText: string): string {
   const lower = userText.toLowerCase();
   if (/mortgage|rate|afford/.test(lower)) {
-    return "I can help estimate that — try the Mortgage Calculator under Tools for exact numbers based on today's rates, down payment, and amortization. Want me to point you to it?";
+    return "I can help estimate that. Try the Mortgage Calculator under Tools for exact numbers based on today's rates, down payment, and amortization. Want me to point you to it?";
   }
   if (/sell/.test(lower)) {
     return "Selling starts with a pricing strategy and professional marketing. Our Selling Strategy guide walks through it step by step, and I can connect you with an agent for a free home assessment.";
@@ -75,7 +75,7 @@ function localFallbackReply(userText: string): string {
   if (/invest/.test(lower)) {
     return "For investment purposes, condos in high-demand areas like City Centre Mississauga or waterfront units tend to hold value well. Want a few current listings that fit that profile?";
   }
-  return "I'm running in local demo mode right now (no live AI connected yet), but I can still point you toward listings, calculators, and guides on the site — what are you looking for?";
+  return "I'm running in local demo mode right now (no live AI connected yet), but I can still point you toward listings, calculators, and guides on the site. What are you looking for?";
 }
 
 export default function PropertyAssistant() {
@@ -268,7 +268,7 @@ export default function PropertyAssistant() {
 
         {apiUnavailable && (
           <p className="border-t border-stone-line bg-stone px-4 py-2 text-center text-[10px] text-ink/50">
-            Live AI not connected yet —{" "}
+            Live AI not connected yet,{" "}
             <button type="button" onClick={() => openContactModal()} className="underline hover:text-ink">
               talk to a real agent
             </button>{" "}

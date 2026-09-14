@@ -88,7 +88,7 @@ export default function ContactModal() {
 
               {status === "error" && (
                 <p className="mt-3 text-[13px] leading-relaxed text-red-700">
-                  Something went wrong sending that — please try again, or reach us directly at{" "}
+                  Something went wrong sending that. Please try again, or reach us directly at{" "}
                   <a href="mailto:info@westproperties.ca" className="underline">
                     info@westproperties.ca
                   </a>
@@ -112,7 +112,7 @@ export default function ContactModal() {
             <div className="mt-8 flex flex-col items-start gap-3 border-t border-stone-line pt-6">
               <span className="plaque">Request Sent</span>
               <p className="text-[14px] leading-relaxed text-ink/65">
-                Thanks — a local specialist will be in touch within one business day. (This is a design
+                Thanks, a local specialist will be in touch within one business day. (This is a design
                 preview: your message was logged, not sent to a real inbox yet.)
               </p>
               <button type="button" onClick={handleClose} className="btn-outline mt-2">

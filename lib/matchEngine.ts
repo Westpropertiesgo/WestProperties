@@ -34,7 +34,7 @@ export function calculateMatchScore(property: Property, prefs: UserPreferences):
       note = "Comfortably within your budget.";
     } else if (price < prefs.budgetMin) {
       score = 0.75;
-      note = "Below your budget — extra room to negotiate or upgrade.";
+      note = "Below your budget, extra room to negotiate or upgrade.";
     } else {
       const overBy = (price - prefs.budgetMax) / prefs.budgetMax;
       score = Math.max(0, 1 - overBy * 2);
@@ -68,7 +68,7 @@ export function calculateMatchScore(property: Property, prefs: UserPreferences):
       note = `Only ${property.beds} bedrooms may feel tight for ${prefs.familySize} people.`;
     } else {
       score = Math.max(0.5, 1 - diff * 0.15);
-      note = `More space than strictly needed — room to grow.`;
+      note = `More space than strictly needed, room to grow.`;
     }
     factors.push({ label: "Family Size Fit", weight: 0.15, score, note });
   }
@@ -124,7 +124,7 @@ export function calculateMatchScore(property: Property, prefs: UserPreferences):
     if (prefs.hasPets) {
       if (property.type === "Condo") {
         score = 0.55;
-        note = "Condos sometimes carry pet size/breed restrictions — confirm with the building.";
+        note = "Condos sometimes carry pet size/breed restrictions, confirm with the building.";
       } else {
         score = 1;
         note = "A yard and more space is a plus for pet owners.";

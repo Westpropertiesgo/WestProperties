@@ -119,7 +119,7 @@ export default function FeaturedProperties({ limit, showToggle = true }: Feature
         {!limit && (
           <p className="mt-10 max-w-2xl text-[12px] leading-relaxed text-ink/45">
             Listing data shown is illustrative. Live inventory will populate
-            this section once an MLS&reg;/IDX feed is connected — see the
+            this section once an MLS&reg;/IDX feed is connected. See the
             integration note in the footer.
           </p>
         )}

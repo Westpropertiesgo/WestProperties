@@ -28,18 +28,18 @@ export function generateLocalSummary(property: Property): PropertySummary {
     profile.schoolQuality !== "average" ? `${profile.schoolQuality[0].toUpperCase()}${profile.schoolQuality.slice(1)}-rated schools nearby` : `Reasonable access to local schools`,
     profile.growthOutlook === "strong" ? `${city} has a strong growth outlook for long-term value` : `${city} offers steady, stable value over time`,
   ];
-  if (property.status === "New Listing") pros.push("Just listed — early access before it sees wide competition");
+  if (property.status === "New Listing") pros.push("Just listed, early access before it sees wide competition");
 
   const drawbacks: string[] = [];
   if (property.type === "Condo") drawbacks.push("Condo fees apply, and pet or rental restrictions are worth confirming with the building");
   if (profile.commuteMinutesToToronto > 40) drawbacks.push(`Commute to downtown Toronto runs on the longer side (~${profile.commuteMinutesToToronto} min by car)`);
   if (pricePerSqft && pricePerSqft > 900) drawbacks.push("Price per square foot is on the higher end for the area");
-  if (drawbacks.length === 0) drawbacks.push("No significant drawbacks identified from the listing data — worth an in-person visit to confirm condition");
+  if (drawbacks.length === 0) drawbacks.push("No significant drawbacks identified from the listing data, worth an in-person visit to confirm condition");
 
   const investmentPotential =
     profile.growthOutlook === "strong"
       ? `${city} has shown strong demand and appreciation trends, making this a reasonable hold for long-term investors, particularly ${property.type === "Condo" ? "given rental demand from commuters" : "as a family-home resale market"}.`
-      : `${city} tends to appreciate steadily rather than sharply — a solid, lower-risk hold rather than a fast-flip opportunity.`;
+      : `${city} tends to appreciate steadily rather than sharply: a solid, lower-risk hold rather than a fast-flip opportunity.`;
 
   const lifestyleFit = `Best suited to a ${profile.lifestyleTags.join("/")}-leaning lifestyle. ${
     profile.familyFriendly === "high"

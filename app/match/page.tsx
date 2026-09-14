@@ -31,7 +31,7 @@ export default function MatchPage() {
             </h1>
             <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-ink/60">
               Answer a few questions and every listing gets a Match Score from 1–100, with a plain-language
-              explanation of why it does — or doesn&rsquo;t — fit what you&rsquo;re looking for.
+              explanation of why it does or doesn&rsquo;t fit what you&rsquo;re looking for.
             </p>
 
             <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.3fr]">
