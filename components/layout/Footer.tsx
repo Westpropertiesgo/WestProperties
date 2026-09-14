@@ -70,7 +70,7 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="bg-ink text-ivory">
-      <div className="container-x grid gap-14 py-20 md:grid-cols-[1.3fr_1fr]">
+      <div className="container-x grid gap-8 py-12 md:grid-cols-[0.8fr_1.2fr]">
         <div>
           <p className="flex items-baseline gap-2">
             <span className="font-logo text-2xl text-ivory tracking-tight">West</span>
@@ -85,8 +85,9 @@ export default function Footer() {
         </div>
 
         {/* Navigate and Contact share a tighter inner gap than the gap to
-            the brand column, so Contact sits close to Navigate as requested. */}
-        <div className="grid gap-8 sm:grid-cols-2">
+            the brand column, and the narrower gap-10/1fr-1fr split above
+            pulls this whole group closer to the West Properties wordmark. */}
+        <div className="grid gap-6 sm:grid-cols-2">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-widest2 text-ivory/40">
               Navigate
@@ -143,7 +144,7 @@ export default function Footer() {
       </div>
 
       <div className="hairline border-ivory/10">
-        <div className="container-x flex justify-end gap-6 py-8 text-[11px] text-ivory/40">
+        <div className="container-x flex justify-end gap-6 py-6 text-[11px] text-ivory/40">
           <Link href="/privacy" className="hover:text-brass-light">
             Privacy Policy
           </Link>
@@ -151,21 +152,25 @@ export default function Footer() {
             Terms of Use
           </Link>
         </div>
-        {/* pb-24 (not pb-8) — the site-wide chat launcher is fixed bottom-6
-            right-6, so the last footer row needs enough clearance that its
-            text never sits underneath that floating button once the page is
-            scrolled all the way down. */}
-        <div className="container-x flex flex-col gap-2 pb-24 text-left">
-          <p className="text-[12px] leading-relaxed text-ivory/50">
-            &copy; {new Date().getFullYear()} West Properties. All rights reserved. Hussnain Khalid,
-            Salesperson. Independently Owned and Operated. Registered with RECO. Brokerage Office: Royal
-            Lepage Signature Realty.
-          </p>
-          <p className="text-[10.5px] leading-relaxed text-ivory/30">
-            Not intended to solicit buyers or sellers currently under contract. The MLS&reg; trademark and
-            associated logos are owned by The Canadian Real Estate Association (CREA) and identify the
-            quality of services provided by real estate professionals who are members of CREA.
-          </p>
+        {/* Right-aligned and width-capped so these wrap into a short block
+            instead of one long line stretching the full footer width.
+            pb-24 (not pb-8) is intentional: the site-wide chat launcher is
+            fixed bottom-6 right-6, so this row needs enough clearance that
+            its text never sits underneath that floating button once the
+            page is scrolled all the way down. */}
+        <div className="container-x flex justify-end pb-24">
+          <div className="max-w-sm text-right">
+            <p className="text-[12px] leading-relaxed text-ivory/50">
+              &copy; {new Date().getFullYear()} West Properties. All rights reserved. Hussnain Khalid,
+              Salesperson. Independently Owned and Operated. Registered with RECO. Brokerage Office: Royal
+              Lepage Signature Realty.
+            </p>
+            <p className="mt-2 text-[10.5px] leading-relaxed text-ivory/30">
+              Not intended to solicit buyers or sellers currently under contract. The MLS&reg; trademark
+              and associated logos are owned by The Canadian Real Estate Association (CREA) and identify
+              the quality of services provided by real estate professionals who are members of CREA.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
