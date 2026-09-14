@@ -70,7 +70,7 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="bg-ink text-ivory">
-      <div className="container-x grid gap-8 py-12 md:grid-cols-[0.8fr_1.2fr]">
+      <div className="container-x grid gap-8 py-10 md:grid-cols-[0.8fr_1.2fr]">
         <div>
           <p className="flex items-baseline gap-2">
             <span className="font-logo text-2xl text-ivory tracking-tight">West</span>

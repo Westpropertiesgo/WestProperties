@@ -17,7 +17,7 @@ export default function FinalCTA() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-ink py-28 text-ivory md:py-40">
+    <section className="relative overflow-hidden bg-ink py-20 text-ivory md:py-28">
       <div className="pointer-events-none absolute inset-0 opacity-[0.06]">
         <img
           src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=2000&auto=format&fit=crop"
