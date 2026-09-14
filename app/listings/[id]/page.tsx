@@ -97,7 +97,7 @@ export default function ListingDetailPage() {
                     {formatPriceFull(mockListing.price, mockListing.isRental)}
                   </p>
                   <p className="mt-6 text-[13px] leading-relaxed text-ink/50">
-                    This is placeholder demo data from the Property Map Search feature — not one of West
+                    This is placeholder demo data from the Property Map Search feature, not one of West
                     Properties&rsquo; full listings, so it doesn&rsquo;t yet have an AI summary or match score.
                   </p>
                   <button

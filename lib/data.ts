@@ -385,7 +385,7 @@ export const journalArticles: JournalArticle[] = [
     category: "City Guide",
     title: "Living in Mississauga: The Complete Guide",
     excerpt:
-      "Everything to know before moving to Mississauga — from Port Credit's waterfront to Square One's condo corridor.",
+      "Everything to know before moving to Mississauga, from Port Credit's waterfront to Square One's condo corridor.",
     readTime: "9 min read",
     publishedAt: "2026-05-12",
     image:

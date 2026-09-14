@@ -4,7 +4,7 @@ import Eyebrow from "@/components/ui/Eyebrow";
 const buyingPoints = [
   {
     title: "Search homes",
-    copy: "Curated matches across Mississauga, Oakville, and Milton, filtered to what actually fits your criteria — not just what's newly listed.",
+    copy: "Curated matches across Mississauga, Oakville, and Milton, filtered to what actually fits your criteria, not just what's newly listed.",
   },
   {
     title: "Schedule showings",
@@ -16,7 +16,7 @@ const buyingPoints = [
   },
   {
     title: "Negotiation support",
-    copy: "An advocate at the table for every offer, condition, and closing detail — protecting your position start to finish.",
+    copy: "An advocate at the table for every offer, condition, and closing detail, protecting your position start to finish.",
   },
 ];
 

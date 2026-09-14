@@ -30,7 +30,7 @@ export default function AboutSection() {
           <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-ink/65">
             Our mission is to give every buyer and seller in these three
             communities the same calibre of guidance typically reserved for
-            the region&rsquo;s largest transactions — clear communication,
+            the region&rsquo;s largest transactions: clear communication,
             rigorous pricing, and negotiation handled by someone who has
             already closed on your street.
           </p>

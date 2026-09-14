@@ -4,7 +4,7 @@ import { trustBadges } from "@/lib/data";
 const reasons = [
   {
     title: "Local expertise",
-    copy: "We work exclusively in Mississauga, Oakville, and Milton — not the entire GTA spread thin.",
+    copy: "We work exclusively in Mississauga, Oakville, and Milton, not the entire GTA spread thin.",
   },
   {
     title: "Personalized service",
@@ -16,7 +16,7 @@ const reasons = [
   },
   {
     title: "Trusted guidance",
-    copy: "Straightforward advice on price, timing, and offers — even when it isn't what you want to hear.",
+    copy: "Straightforward advice on price, timing, and offers, even when it isn't what you want to hear.",
   },
   {
     title: "Professional marketing",
