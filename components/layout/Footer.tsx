@@ -152,14 +152,15 @@ export default function Footer() {
             Terms of Use
           </Link>
         </div>
-        {/* Right-aligned and width-capped so these wrap into a short block
-            instead of one long line stretching the full footer width.
+        {/* Centered and width-capped, not stretched full-width or pinned to
+            one edge — wrapped lines of differing length center on the same
+            axis, reading as one organized block rather than a long line.
             pb-24 (not pb-8) is intentional: the site-wide chat launcher is
             fixed bottom-6 right-6, so this row needs enough clearance that
             its text never sits underneath that floating button once the
             page is scrolled all the way down. */}
-        <div className="container-x flex justify-end pb-24">
-          <div className="max-w-sm text-right">
+        <div className="container-x flex justify-center pb-24 text-center">
+          <div className="max-w-2xl">
             <p className="text-[12px] leading-relaxed text-ivory/50">
               &copy; {new Date().getFullYear()} West Properties. All rights reserved. Hussnain Khalid,
               Salesperson. Independently Owned and Operated. Registered with RECO. Brokerage Office: Royal
