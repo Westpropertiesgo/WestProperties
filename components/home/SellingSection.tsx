@@ -63,7 +63,7 @@ export default function SellingSection() {
             <input type="email" placeholder="Email address" className="field" required />
             <input type="tel" placeholder="Phone number" className="field" required />
             <input type="text" placeholder="Property address" className="field" required />
-            <button type="submit" className="btn-primary mt-7 w-full">
+            <button type="submit" className="btn-primary mt-7 w-full whitespace-normal">
               Submit Property Details
             </button>
           </form>

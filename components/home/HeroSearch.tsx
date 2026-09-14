@@ -96,11 +96,14 @@ export default function HeroSearch() {
             {showAnimatedPlaceholder && (
               <span
                 aria-hidden="true"
-                className={`pointer-events-none absolute inset-y-0 left-0 flex items-center overflow-hidden font-body text-[15px] text-ink/40 transition-all duration-300 ease-out ${
+                className={`pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center font-body text-[15px] text-ink/40 transition-all duration-300 ease-out ${
                   phraseVisible ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
                 }`}
               >
-                {placeholderPhrases[phraseIndex]}
+                {/* Nested block span (not the flex row itself) so text-overflow
+                    ellipsis actually applies when a phrase is wider than a
+                    narrow phone screen, instead of getting hard-clipped. */}
+                <span className="min-w-0 truncate">{placeholderPhrases[phraseIndex]}</span>
               </span>
             )}
           </div>

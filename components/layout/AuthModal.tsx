@@ -96,7 +96,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps) {
                 </div>
               )}
 
-              <button type="submit" className="btn-primary mt-7 w-full">
+              <button type="submit" className="btn-primary mt-7 w-full whitespace-normal">
                 {mode === "signin" ? "Log In" : "Create Account"}
               </button>
 

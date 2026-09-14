@@ -25,7 +25,7 @@ function UserIcon() {
 
 function HamburgerIcon({ open }: { open: boolean }) {
   return (
-    <span className="flex h-10 w-10 flex-col items-center justify-center gap-[5px]">
+    <span className="flex h-11 w-11 flex-col items-center justify-center gap-[5px]">
       <span
         className={`h-px w-6 bg-current transition-transform duration-300 ${
           open ? "translate-y-[3px] rotate-45" : ""

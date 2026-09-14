@@ -209,7 +209,7 @@ export default function PropertyMapExplorer() {
                 </button>
               </div>
               <PropertyFiltersBar filters={filters} onChange={handleFiltersChange} resultCount={filtered.length} />
-              <button type="button" onClick={() => setMobileFiltersOpen(false)} className="btn-primary mt-6 w-full">
+              <button type="button" onClick={() => setMobileFiltersOpen(false)} className="btn-primary mt-6 w-full whitespace-normal">
                 Show {filtered.length} Properties
               </button>
             </div>

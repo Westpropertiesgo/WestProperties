@@ -77,7 +77,7 @@ export default function WestInsiderSection() {
                   <option>Milton</option>
                   <option>Not sure yet</option>
                 </select>
-                <button type="submit" className="btn-brass mt-8 w-full">
+                <button type="submit" className="btn-brass mt-8 w-full whitespace-normal">
                   Request Access
                 </button>
               </form>
