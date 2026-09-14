@@ -74,28 +74,23 @@ export default function Footer() {
       </div>
 
       <div className="hairline border-ivory/10">
-        <div className="container-x flex flex-col gap-6 py-8 text-[11px] leading-relaxed text-ivory/40 lg:flex-row lg:items-start lg:justify-between">
-          <p className="max-w-3xl">
-            The trademarks MLS&reg;, Multiple Listing Service&reg;, and the
-            associated logos are owned by the Canadian Real Estate
-            Association (CREA) and identify the quality of services provided
-            by real estate professionals who are members of CREA. Listing
-            data on this site is a placeholder pending live MLS&reg;/IDX feed
-            integration and does not reflect real, currently available
-            properties. All information is deemed reliable but is not
-            guaranteed and should be independently verified.
-          </p>
-          <div className="flex shrink-0 gap-6">
-            <Link href="/privacy" className="hover:text-brass-light">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-brass-light">
-              Terms of Use
-            </Link>
-          </div>
+        <div className="container-x flex justify-end gap-6 py-8 text-[11px] text-ivory/40">
+          <Link href="/privacy" className="hover:text-brass-light">
+            Privacy Policy
+          </Link>
+          <Link href="/terms" className="hover:text-brass-light">
+            Terms of Use
+          </Link>
         </div>
-        <div className="container-x pb-8 text-[11px] text-ivory/30">
-          &copy; {new Date().getFullYear()} West Properties. All rights reserved.
+        {/* pb-24 (not pb-8) — the site-wide chat launcher is fixed bottom-6
+            right-6, so the last footer row needs enough clearance that its
+            text never sits underneath that floating button once the page is
+            scrolled all the way down. */}
+        <div className="container-x flex flex-col gap-2 pb-24 text-[11px] text-ivory/30 sm:flex-row sm:items-center sm:justify-between">
+          <p>&copy; {new Date().getFullYear()} West Properties. All rights reserved.</p>
+          <p className="font-mono text-[10px] uppercase tracking-widest2 text-ivory/35">
+            Milton. Oakville. Mississauga. Real estate, done locally.
+          </p>
         </div>
       </div>
     </footer>
