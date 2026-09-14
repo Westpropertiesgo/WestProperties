@@ -233,7 +233,7 @@ export default function PropertyMap({
       };
 
       map.on("data", (e) => {
-        if (e.sourceId === SOURCE_ID && map.isSourceLoaded(SOURCE_ID)) renderMarkers();
+        if ("sourceId" in e && e.sourceId === SOURCE_ID && map.isSourceLoaded(SOURCE_ID)) renderMarkers();
       });
       map.on("render", () => {
         if (map.isSourceLoaded(SOURCE_ID)) renderMarkers();
