@@ -5,7 +5,9 @@ import HeroSearch from "@/components/home/HeroSearch";
 // Identical color grade on all three photos — no single city's source photo
 // (e.g. a bluer sky or greener foliage) is allowed to read "louder" than the
 // others, so Milton, Oakville, and Mississauga carry equal visual weight.
-const PHOTO_FILTER = "grayscale(0.55) saturate(0.85) contrast(1.08) brightness(0.88)";
+// Lighter touch than before (less grayscale/contrast, more brightness) so
+// the photos keep more of their natural colour under the scrim below.
+const PHOTO_FILTER = "grayscale(0.22) saturate(0.95) contrast(1.03) brightness(0.98)";
 
 // Same three source photos used by both the desktop panorama and the mobile
 // slideshow below, each with a mobile-tuned crop so the part of the photo
@@ -70,7 +72,7 @@ export default function Hero() {
           />
           {/* One uniform wash across the full panorama ties all three photos to
               a single consistent tone, rather than tinting one panel alone. */}
-          <div className="absolute inset-0 bg-ink/20" />
+          <div className="absolute inset-0 bg-ink/10" />
         </div>
 
         {/* Mobile (below md) — a full-width slideshow instead of the
@@ -91,13 +93,16 @@ export default function Hero() {
               }}
             />
           ))}
-          <div className="absolute inset-0 bg-ink/20" />
+          <div className="absolute inset-0 bg-ink/10" />
         </div>
       </div>
-      {/* Flat scrim guarantees text/search-bar contrast; the two gradients add cinematic depth */}
-      <div className="absolute inset-0 bg-ink/45" />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/45 via-transparent to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-transparent to-transparent" />
+      {/* Flat scrim guarantees text/search-bar contrast; the two gradients add
+          cinematic depth. Lightened from the previous /45·/45·/55 so the
+          photos read brighter and keep more natural colour, while staying
+          dark enough that the heading and search bar stay clearly legible. */}
+      <div className="absolute inset-0 bg-ink/28" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink/38 via-transparent to-transparent" />
 
       <div className="container-x relative z-10 flex flex-col items-center py-5 text-center md:py-6">
         <h1

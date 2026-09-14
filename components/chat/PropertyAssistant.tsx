@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { findMatchingListings, type MatchableProperty } from "@/lib/chatMatcher";
+import { useContactModal } from "@/components/layout/ContactModalContext";
 
 interface ChatMessage {
   id: string;
@@ -79,6 +79,7 @@ function localFallbackReply(userText: string): string {
 }
 
 export default function PropertyAssistant() {
+  const { openContactModal } = useContactModal();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
@@ -268,9 +269,9 @@ export default function PropertyAssistant() {
         {apiUnavailable && (
           <p className="border-t border-stone-line bg-stone px-4 py-2 text-center text-[10px] text-ink/50">
             Live AI not connected yet —{" "}
-            <Link href="/contact" className="underline hover:text-ink">
+            <button type="button" onClick={() => openContactModal()} className="underline hover:text-ink">
               talk to a real agent
-            </Link>{" "}
+            </button>{" "}
             anytime.
           </p>
         )}

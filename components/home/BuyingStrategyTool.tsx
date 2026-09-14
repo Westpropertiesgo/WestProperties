@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Eyebrow from "@/components/ui/Eyebrow";
+import { useContactModal } from "@/components/layout/ContactModalContext";
 
 const stages = [
   {
@@ -54,6 +54,7 @@ const stages = [
 export default function BuyingStrategyTool() {
   const [activeKey, setActiveKey] = useState(stages[0].key);
   const active = stages.find((s) => s.key === activeKey) ?? stages[0];
+  const { openContactModal } = useContactModal();
 
   return (
     <section className="bg-ivory py-28 md:py-36" id="buying-strategy">
@@ -116,9 +117,9 @@ export default function BuyingStrategyTool() {
               ))}
             </ul>
 
-            <Link href="/contact" className="btn-primary mt-10 inline-flex">
+            <button type="button" onClick={() => openContactModal()} className="btn-primary mt-10 inline-flex">
               Talk to an Advisor
-            </Link>
+            </button>
           </div>
         </div>
       </div>

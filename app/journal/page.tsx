@@ -5,7 +5,7 @@ import WestJournalSection from "@/components/home/WestJournalSection";
 export default function JournalPage() {
   return (
     <>
-      <Header />
+      <Header alwaysSolid />
       <main className="pt-20 md:pt-24">
         <WestJournalSection />
       </main>

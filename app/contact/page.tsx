@@ -6,7 +6,11 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="pt-20 md:pt-24">
+      {/* bg-ink matches FinalCTA's own background — without it, the
+          pt-20/24 reserved for the fixed header exposes the page's default
+          ivory background in that gap, and the header's transparent white
+          text becomes unreadable against it. */}
+      <main className="bg-ink pt-20 md:pt-24">
         <FinalCTA />
       </main>
       <Footer />

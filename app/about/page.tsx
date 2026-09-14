@@ -8,7 +8,7 @@ import MarketSnapshotStrip from "@/components/home/MarketSnapshotStrip";
 export default function AboutPage() {
   return (
     <>
-      <Header />
+      <Header alwaysSolid />
       <main className="pt-20 md:pt-24">
         <AboutSection />
         <WhyUsSection />

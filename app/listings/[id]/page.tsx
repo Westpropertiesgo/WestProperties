@@ -13,6 +13,7 @@ import { properties, rentalProperties } from "@/lib/data";
 import { mockListings } from "@/lib/mockListings";
 import { formatPriceFull } from "@/lib/mapUtils";
 import type { PropertySummary } from "@/lib/types";
+import { useContactModal } from "@/components/layout/ContactModalContext";
 
 function SectionBlock({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -26,6 +27,7 @@ function SectionBlock({ title, children }: { title: string; children: React.Reac
 export default function ListingDetailPage() {
   const params = useParams<{ id: string }>();
   const { preferences } = useMatchPreferences();
+  const { openContactModal } = useContactModal();
 
   const property = [...properties, ...rentalProperties].find((p) => p.id === params.id);
 
@@ -71,7 +73,7 @@ export default function ListingDetailPage() {
     if (mockListing) {
       return (
         <>
-          <Header />
+          <Header alwaysSolid />
           <main className="pt-20 md:pt-24">
             <section className="bg-ivory py-12 md:py-16">
               <div className="container-x grid gap-10 lg:grid-cols-[1.2fr_1fr]">
@@ -98,9 +100,13 @@ export default function ListingDetailPage() {
                     This is placeholder demo data from the Property Map Search feature — not one of West
                     Properties&rsquo; full listings, so it doesn&rsquo;t yet have an AI summary or match score.
                   </p>
-                  <Link href="/contact" className="btn-primary mt-6 inline-flex">
+                  <button
+                    type="button"
+                    onClick={() => openContactModal(mockListing.address)}
+                    className="btn-primary mt-6 inline-flex"
+                  >
                     Book a Consultation
-                  </Link>
+                  </button>
                 </div>
               </div>
             </section>
@@ -112,7 +118,7 @@ export default function ListingDetailPage() {
 
     return (
       <>
-        <Header />
+        <Header alwaysSolid />
         <main className="flex min-h-[50vh] flex-col items-center justify-center gap-4 pt-20 text-center md:pt-24">
           <p className="font-display text-2xl font-medium text-ink">Listing not found</p>
           <Link href="/buy" className="btn-outline">
@@ -128,7 +134,7 @@ export default function ListingDetailPage() {
 
   return (
     <>
-      <Header />
+      <Header alwaysSolid />
       <main className="pt-20 md:pt-24">
         <section className="bg-ivory py-12 md:py-16">
           <div className="container-x grid gap-10 lg:grid-cols-[1.2fr_1fr]">
@@ -247,9 +253,13 @@ export default function ListingDetailPage() {
                     </ol>
                   </SectionBlock>
 
-                  <Link href="/contact" className="btn-primary mt-2 self-start">
+                  <button
+                    type="button"
+                    onClick={() => openContactModal(property.address)}
+                    className="btn-primary mt-2 self-start"
+                  >
                     Book a Consultation
-                  </Link>
+                  </button>
                 </div>
               )}
             </div>
