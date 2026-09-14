@@ -5,7 +5,7 @@ import BuyingStrategyTool from "@/components/home/BuyingStrategyTool";
 export default function BuyingStrategyPage() {
   return (
     <>
-      <Header />
+      <Header alwaysSolid />
       <main className="pt-20 md:pt-24">
         <BuyingStrategyTool />
       </main>

@@ -1,6 +1,10 @@
-import Link from "next/link";
+"use client";
+
+import { useContactModal } from "@/components/layout/ContactModalContext";
 
 export default function FinalCTA() {
+  const { openContactModal } = useContactModal();
+
   return (
     <section className="relative overflow-hidden bg-ink py-28 text-ivory md:py-40">
       <div className="pointer-events-none absolute inset-0 opacity-[0.06]">
@@ -22,12 +26,12 @@ export default function FinalCTA() {
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
-          <Link href="/contact" className="btn-brass">
+          <button type="button" onClick={() => openContactModal()} className="btn-brass">
             Book a Consultation
-          </Link>
-          <Link href="/contact" className="btn-outline-light">
+          </button>
+          <button type="button" onClick={() => openContactModal()} className="btn-outline-light">
             Contact Us
-          </Link>
+          </button>
         </div>
       </div>
     </section>

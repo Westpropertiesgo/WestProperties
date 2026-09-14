@@ -5,7 +5,7 @@ import HomeValueSection from "@/components/home/HomeValueSection";
 export default function HomeValuePage() {
   return (
     <>
-      <Header />
+      <Header alwaysSolid />
       <main className="pt-20 md:pt-24">
         <HomeValueSection />
       </main>

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins, Playfair_Display, Inter, Space_Grotesk } from "next/font/google";
 import PropertyAssistant from "@/components/chat/PropertyAssistant";
 import { MatchPreferencesProvider } from "@/components/match/MatchContext";
+import { ContactModalProvider } from "@/components/layout/ContactModalContext";
+import ContactModal from "@/components/layout/ContactModal";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -77,10 +79,13 @@ export default function RootLayout({
   return (
     <html lang="en-CA" className={`${poppins.variable} ${playfairLogo.variable} ${inter.variable} ${spaceGrotesk.variable}`}>
       <body>
-        <MatchPreferencesProvider>
-          {children}
-          <PropertyAssistant />
-        </MatchPreferencesProvider>
+        <ContactModalProvider>
+          <MatchPreferencesProvider>
+            {children}
+            <PropertyAssistant />
+          </MatchPreferencesProvider>
+          <ContactModal />
+        </ContactModalProvider>
       </body>
     </html>
   );

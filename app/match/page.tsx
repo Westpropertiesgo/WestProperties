@@ -21,7 +21,7 @@ export default function MatchPage() {
 
   return (
     <>
-      <Header />
+      <Header alwaysSolid />
       <main className="pt-20 md:pt-24">
         <section className="bg-ivory py-16 md:py-20">
           <div className="container-x">

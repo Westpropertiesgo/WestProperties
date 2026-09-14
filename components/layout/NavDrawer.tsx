@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { drawerAccordions, drawerFlatLinks, type DrawerLink } from "@/lib/data";
+import { useContactModal } from "@/components/layout/ContactModalContext";
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (
@@ -28,11 +29,13 @@ function DrawerLinkItem({
   item,
   onNavigate,
   onRequireAuth,
+  onOpenContact,
   className,
 }: {
   item: DrawerLink;
   onNavigate: () => void;
   onRequireAuth: () => void;
+  onOpenContact: () => void;
   className: string;
 }) {
   if (item.authGated) {
@@ -42,6 +45,23 @@ function DrawerLinkItem({
         onClick={() => {
           onNavigate();
           onRequireAuth();
+        }}
+        className={`${className} text-left`}
+      >
+        {item.label}
+      </button>
+    );
+  }
+  // Any drawer link that points at /contact opens the lead-capture modal
+  // directly instead of navigating there, same as every other
+  // "Book a Consultation" CTA on the site.
+  if (item.href === "/contact") {
+    return (
+      <button
+        type="button"
+        onClick={() => {
+          onNavigate();
+          onOpenContact();
         }}
         className={`${className} text-left`}
       >
@@ -63,6 +83,7 @@ function AccordionSection({
   onToggle,
   onNavigate,
   onRequireAuth,
+  onOpenContact,
 }: {
   title: string;
   items: DrawerLink[];
@@ -70,6 +91,7 @@ function AccordionSection({
   onToggle: () => void;
   onNavigate: () => void;
   onRequireAuth: () => void;
+  onOpenContact: () => void;
 }) {
   return (
     <div className="border-b border-ivory/10">
@@ -97,6 +119,7 @@ function AccordionSection({
                   item={item}
                   onNavigate={onNavigate}
                   onRequireAuth={onRequireAuth}
+                  onOpenContact={onOpenContact}
                   className="block py-2 text-[13px] text-ivory/65 transition-colors hover:text-brass-light"
                 />
               </li>
@@ -118,6 +141,7 @@ export default function NavDrawer({
   onRequireAuth: () => void;
 }) {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const { openContactModal } = useContactModal();
 
   useEffect(() => {
     if (open) {
@@ -181,6 +205,7 @@ export default function NavDrawer({
                   item={item}
                   onNavigate={onClose}
                   onRequireAuth={onRequireAuth}
+                  onOpenContact={() => openContactModal()}
                   className="block py-2.5 font-mono text-[12px] uppercase tracking-widest2 text-ivory/90 transition-colors hover:text-brass-light"
                 />
               </li>
@@ -196,18 +221,22 @@ export default function NavDrawer({
               onToggle={() => setExpanded((cur) => (cur === section.title ? null : section.title))}
               onNavigate={onClose}
               onRequireAuth={onRequireAuth}
+              onOpenContact={() => openContactModal()}
             />
           ))}
         </div>
 
         <div className="border-t border-ivory/10 p-6">
-          <Link
-            href="/contact"
-            onClick={onClose}
+          <button
+            type="button"
+            onClick={() => {
+              onClose();
+              openContactModal();
+            }}
             className="block w-full rounded-md border border-brass px-6 py-3 text-center font-mono text-[11px] uppercase tracking-widest2 text-brass transition-all duration-300 hover:bg-brass hover:text-ink"
           >
             Book a Consultation
-          </Link>
+          </button>
         </div>
       </div>
     </>

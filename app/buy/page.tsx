@@ -6,7 +6,7 @@ import FeaturedProperties from "@/components/home/FeaturedProperties";
 export default function BuyPage() {
   return (
     <>
-      <Header />
+      <Header alwaysSolid />
       <main className="pt-20 md:pt-24">
         <BuyingSection />
         <FeaturedProperties />

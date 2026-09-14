@@ -9,7 +9,7 @@ export const metadata = {
 export default function MapSearchPage() {
   return (
     <>
-      <Header />
+      <Header alwaysSolid />
       <main className="pt-20 md:pt-24">
         <PropertyMapExplorer />
       </main>
